@@ -10,6 +10,7 @@ X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y
  - I used a Cross Validation and for loop. I used for loop to decide the parameters. I used 8 ExtraTreesClassifiers and 1 KNeighborsClassifier. There are 4 ExtraTreesClassifiers which n_estimators is high and 4 ExtraTreesClassifiers which n_estimators is 1. From Cross Validation, I realized that ETC which has an n_estimator of 1 has great accuaracy at part of data that high estimators ETC incorrects. However, overall 1 estimator ETC accuracy was very low. So, I put same number of 1 estimator ETC and high estimator ETC. Then, I put KNeighborClassifier to increase accuracy. (For example, 4 low estimator ETC guess: no tumor, 4 high estimator ETC guess: meningioma_tumor, then KNC which has high accuracy classifier makes a decisive judgement)
 <pre>
 <code>
+#Big n_estimators 
 ETC1 = ExtraTreesClassifier(n_estimators = 76,max_depth = 64,max_features = 1,min_samples_split = 3,random_state = 1001, criterion='entropy')
 ETC2 = ExtraTreesClassifier(n_estimators = 42,max_depth = 53,max_features = 1,min_samples_split = 3,random_state = 1012, criterion='entropy')
 ETC3 = ExtraTreesClassifier(n_estimators = 25,max_depth = 40,max_features = 1,min_samples_split = 3,random_state = 2914, criterion='entropy')
